@@ -39,6 +39,11 @@ public:
         value = arr[top];
         return 0; // Успешное считывание
     }
+
+    // Проверка, пуст ли стек
+    bool isEmpty() {
+        return top < 0;
+    }
 };
 
 int main() {
@@ -48,9 +53,17 @@ int main() {
     // Тестирование операций со стеком
     cout << "Push 10: " << stack.push(10) << endl; // 0
     cout << "Push 20: " << stack.push(20) << endl; // 0
-    cout << "Peek: " << stack.peek(value) << ", Value: " << value << endl; // 0, Value: 20
+
+    // Проверка, пуст ли стек
+    if (!stack.isEmpty()) {
+        cout << "Peek: " << stack.peek(value) << ", Value: " << value << endl; // 0, Value: 20
+    }
+
     cout << "Pop: " << stack.pop() << endl; // 0
-    cout << "Peek: " << stack.peek(value) << ", Value: " << value << endl; // 0, Value: 10
+    if (!stack.isEmpty()) {
+        cout << "Peek: " << stack.peek(value) << ", Value: " << value << endl; // 0, Value: 10
+    }
+
     cout << "Pop: " << stack.pop() << endl; // 0
     cout << "Pop: " << stack.pop() << endl; // -1 (стек пуст)
 
